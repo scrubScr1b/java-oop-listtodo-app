@@ -8,6 +8,12 @@ public class userViews {
     public static void ShowUserMain() {
         Scanner inputScanner = new Scanner(System.in);
 
+        System.out.println("========================\n" +
+        "List User");
+
+        UserUsecases userUsecases = new UserUsecases();
+        userUsecases.GetUserList();
+
         System.out.println("========================");
         System.out.println("==========MENU=========");
         System.out.println("========================");
@@ -19,10 +25,10 @@ public class userViews {
 
         switch(menu) {
             case 1:
-                UserUsecases.ShowAddUser();
+                ShowAddUser();
                 break;
             case 2:
-                
+                ShowChangePassword();
                 break;
             case 0:
                 WelcomeViews.ShowWelcomeView();
@@ -30,5 +36,32 @@ public class userViews {
         }
         inputScanner.close();
     }
-    
+    public static void ShowAddUser() {
+        Scanner inputScanner = new Scanner(System.in);
+        System.out.println("===========");
+        System.out.println("userid :");
+        String sUserId = inputScanner.nextLine();
+        System.out.println("password :");
+        String sPass = inputScanner.nextLine();
+
+        UserUsecases userUsecases = new UserUsecases();
+        userUsecases.AddUser(sUserId, sPass);
+        ShowUserMain();
+        inputScanner.close();
+    }
+
+    public static void ShowChangePassword() {
+        Scanner inputScanner = new Scanner(System.in);
+        System.out.println("===========");
+        System.out.println("userid :");
+        String sUserId = inputScanner.nextLine();
+        System.out.println("password :");
+        String sPass = inputScanner.nextLine();
+
+        UserUsecases userUsecases = new UserUsecases();
+        userUsecases.ChangePasswordUser(sUserId, sPass);
+        ShowUserMain();
+        inputScanner.close();
+    }
 }
+

@@ -17,6 +17,13 @@ public class UserUsecases {
         userModels = new userModels(dataSource);
     }
 
+    public void GetUserList() {
+        userEntitiy[] userlist = userModels.FindAllUser();
+        for (userEntitiy user : userlist) {
+            System.out.println("- "+ user.getUserid());
+        }
+    }
+
     public void AddUser(String userid, String pass) {
         userEntitiy userData = new userEntitiy();
         userData.setUserId(userid);
@@ -25,16 +32,13 @@ public class UserUsecases {
         System.out.println("Created User Succed!");
     }
 
-    public static void ShowAddUser() {
-        Scanner inputScanner = new Scanner(System.in);
-        System.out.println("===========");
-        System.out.println("userid :");
-        String sUserId = inputScanner.nextLine();
-        System.out.println("password :");
-        String sPass = inputScanner.nextLine();
-
-        UserUsecases userUsecases = new UserUsecases();
-        userUsecases.AddUser(sUserId, sPass);
-        inputScanner.close();
+    public void ChangePasswordUser(String newuserid, String newpass) {
+        userEntitiy userData = new userEntitiy();
+        userData.setUserId(newuserid);
+        userData.setPassword(newpass);
+        userModels.ChangePassword(userData);
+        System.out.println("Change Password Succed!");
     }
+
+
 }

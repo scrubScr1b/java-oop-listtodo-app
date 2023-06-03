@@ -20,7 +20,7 @@ public class WelcomeViews {
 
         switch(menu) {
             case 1:
-                System.out.println("Go to Menu Login Page");
+                LoginView.ShowLoginPage();
                 break;
             case 2:
                 userViews.ShowUserMain();

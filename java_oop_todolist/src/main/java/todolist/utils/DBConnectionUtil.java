@@ -12,7 +12,7 @@ public class DBConnectionUtil {
         config.setDriverClassName("com.mysql.cj.jdbc.Driver");
         config.setUsername("root");
         config.setPassword("");
-        config.setJdbcUrl("jdbc:myslq//localhost:3306/todolist_db?serverTimezone=Asia/Jakarta");
+        config.setJdbcUrl("jdbc:mysql://localhost:3306/todolist_db?serverTimezone=Asia/Jakarta");
 
         // setup database pooling
         config.setMaximumPoolSize(10);
